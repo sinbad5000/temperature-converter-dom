@@ -1,22 +1,37 @@
 var form = document.querySelector("form");
 var div =  document.querySelector("#result")
 
+function cToF(celsius) 
+{
+  var cTemp = celsius;
+  var fResult = cTemp * 9 / 5 + 32;
+  return fResult;
+}
 
+function fToC(fahrenheit) 
+{
+  var fTemp = fahrenheit;
+  var cResult = (fTemp - 32) * 5 / 9;
+  return cResult
+} 
 
 form.addEventListener("submit", function(e){
 
     event.preventDefault();
-
-    var input = form.elements[input].value;
     
+    var input = form.elements[input].value;
+    let convertedTemp = ""
 
     if (form.elements["F"].checked === true){
-
-        var convertedTemp = (input -32) * (5/9);
+        
+        fToC()
         div.innertext = ConvertedTemp;
-       
-
-    }
+        event.preventDefault()
+       } else {
+        cToF()
+        div.innertext = ConvertedTemp;
+        event.preventDefault()
+       }
 
 
 })
@@ -38,10 +53,7 @@ document.getElementById(submitBtn).addEventListener("submit", () => {
 
 })
 
-document.getElementById("form").addEventListener("submit", (e) => {
-    e.preventDefault()
-    console.log(document.getElementById("entry").value)
-  });
+
 
 
   var element;
@@ -69,3 +81,4 @@ function fToC(fahrenheit)
   var cResult = (fTemp - 32) * 5 / 9;
   return cResult
 } 
+*/
